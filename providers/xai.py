@@ -57,6 +57,24 @@ class XAIModelProvider(OpenAICompatibleProvider):
             description="GROK-3 Fast (131K context) - Higher performance variant, faster processing but more expensive",
             aliases=["grok3fast", "grokfast", "grok3-fast"],
         ),
+        "grok-4": ModelCapabilities(
+            provider=ProviderType.XAI,
+            model_name="grok-4",
+            friendly_name="X.AI (Grok 4)",
+            context_window=262_144,  # 256K tokens
+            max_output_tokens=32_768,
+            supports_extended_thinking=False,
+            supports_system_prompts=True,
+            supports_streaming=True,
+            supports_function_calling=True,
+            supports_json_mode=True,  # Assuming GROK-4 supports JSON mode
+            supports_images=True,  # Assuming GROK-4 is multimodal
+            max_image_size_mb=20.0,
+            supports_temperature=True,
+            temperature_constraint=create_temperature_constraint("range"),
+            description="GROK-4 (256K context) - The next generation reasoning and vision model from X.AI for highly complex tasks.",
+            aliases=["grok4"],
+        )
     }
 
     def __init__(self, api_key: str, **kwargs):

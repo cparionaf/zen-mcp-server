@@ -240,6 +240,48 @@
       "max_image_size_mb": 0.0,
       "is_custom": true,
       "description": "Local Llama 3.2 model via custom endpoint (Ollama/vLLM) - 128K context window (text-only)"
+    },
+    {
+      "model_name": "x-ai/grok-4",
+      "aliases": ["grok-4", "grok4", "grok-general"],
+      "context_window": 256000,
+      "max_output_tokens": 65536,
+      "supports_extended_thinking": true,
+      "supports_json_mode": true,
+      "supports_function_calling": true,
+      "supports_images": true,
+      "max_image_size_mb": 20.0,
+      "supports_temperature": false,
+      "temperature_constraint": "fixed",
+      "description": "xAI's Grok 4 - Advanced reasoning model with vision and thinking capabilities"
+    },
+    {
+      "model_name": "x-ai/grok-4-code",
+      "aliases": ["grok-4-code", "grok4-code", "grok-code", "grok-coding"],
+      "context_window": 256000,
+      "max_output_tokens": 65536,
+      "supports_extended_thinking": true,
+      "supports_json_mode": true,
+      "supports_function_calling": true,
+      "supports_images": true,
+      "max_image_size_mb": 20.0,
+      "supports_temperature": false,
+      "temperature_constraint": "fixed",
+      "description": "xAI's Grok 4 Code - Specialized coding companion with enhanced programming capabilities"
+    },
+    {
+      "model_name": "x-ai/grok-4-heavy",
+      "aliases": ["grok-4-heavy", "grok4-heavy", "grok-heavy", "grok-multi"],
+      "context_window": 256000,
+      "max_output_tokens": 65536,
+      "supports_extended_thinking": true,
+      "supports_json_mode": true,
+      "supports_function_calling": true,
+      "supports_images": true,
+      "max_image_size_mb": 20.0,
+      "supports_temperature": false,
+      "temperature_constraint": "fixed",
+      "description": "xAI's Grok 4 Heavy - Multi-agent version with enhanced reasoning and parallel processing"
     }
   ]
 }
