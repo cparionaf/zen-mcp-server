@@ -325,14 +325,16 @@ class OpenAICompatibleProvider(ModelProvider):
                 # The response format is different for responses endpoint
                 content = ""
                 if hasattr(response, "output") and response.output:
-                    if hasattr(response.output, "content") and response.output.content:
-                        # Look for output_text in content
-                        for content_item in response.output.content:
-                            if hasattr(content_item, "type") and content_item.type == "output_text":
-                                content = content_item.text
-                                break
-                    elif hasattr(response.output, "text"):
-                        content = response.output.text
+                    # response.output is an array, need to find message type
+                    for output_item in response.output:
+                        if hasattr(output_item, "type") and output_item.type == "message":
+                            if hasattr(output_item, "content") and output_item.content:
+                                # Look for output_text in content array
+                                for content_item in output_item.content:
+                                    if hasattr(content_item, "type") and content_item.type == "output_text":
+                                        content = content_item.text
+                                        break
+                            break
 
                 # Try to extract usage information
                 usage = None
